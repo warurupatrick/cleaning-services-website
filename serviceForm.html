@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Service</title>
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body{
+            background-color: aqua;
+        }
+    </style>
+
+    <script lang="javascript">
+        function validate(){
+        var clientName = document.getElementById("name");
+        var email = document.getElementById("email");
+        var phoneNo = document.getElementById("phone");
+        var loc = document.getElementById("location");
+
+        var house = document.getElementById("House");
+        var pest = document.getElementById("Pest");
+        var carpet = document.getElementById("carpet");
+        var office = document.getElementById("Office");
+        var idealPhone = /^\d{10}$/;
+        var regEx = /^[a-z][a-z\s]*$/;
+        var idealLocation = /^[A-Za-z0-9]*$/;
+        var regE = /^[a-zA-Z\s]*$/;
+
+        if(clientName.value == "" || email.value == "" || phoneNo.value == "" || loc.value == ""){ 
+            alert("Please fill in all required fields !!");
+            return false;   
+        }
+        else{ 
+            if(!(house.checked)&&!(pest.checked)&&!(carpet.checked)&&!(office.checked)){ 
+            alert("Please select a service before proceeding !!");
+            return false;
+            }
+            else{ 
+                if(!(clientName.value.match(regE)) || clientName.value.length >=20){ 
+                    alert("Please enter Valid name !!");
+                    return false;       
+            }
+            else{ 
+                if(!(loc.value.match(idealLocation)) || loc.value.length >=12){ 
+                    alert("Please enter Valid location !!");
+                    return false;       
+                }
+                else{ 
+                    if(!(phoneNo.value.match(idealPhone))){ 
+                    alert("Please enter Valid Kenyan Phone number !!");
+                    return false;       
+                }
+                else{ 
+                    return true;      
+                }
+            }
+            }
+           
+           
+        }
+
+        }
+    }
+    
+        
+
+    </script>
+</head>
+<body>
+    <h1 class="headOfform">Josmain Cleaning  Company</h1>
+    <h4>Please fill in the form below to order our services:</h4>
+    
+
+    <form onsubmit="return validate()"  action="demo.php"  method="post">
+        <label for="name">Client name:</label><br>
+        <input type="text" name="name" id="name"> (name to have letters and spaces ONLY with a max of 20 characters)<br>
+        <br>
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" id="email"><br>
+        <br>
+         <label for="phone">Telephone:</label><br>
+        <input type="tel" name="phone" id="phone"> (Enter a valid Kenyan phone number ONLY)<br>
+        <br>
+        <label for="location">location:</label><br>
+        <input type="text" name="location" id="location"> (Location to have alphanumerals and spaces ONLY with a max of 12 characters)<br>
+      
+        <p>Select the type of serice that you require:</p>
+        <input type="checkbox" id="carpet"  name="services[]" value="carpet cleaning">
+        <label for="carpet">Carpet Cleaning</label>
+        <input type="checkbox" id="House"  name="services[]" value="House cleaning">
+        <label for="carpet">House Cleaning</label>
+        <input type="checkbox" id="Pest" name="services[]" value="Pest and control">
+        <label for="carpet">Pest and Control</label>
+        <input type="checkbox" id="Office"  name="services[]" value="Office cleaning">
+        <label for="carpet">Office Cleaning</label>
+        <br>
+        <br>
+        <p>
+            Choose the time you will be available:
+            <select name="availability">
+                <option id="anytime" value="anytime" selected>Anytime</option>
+                <option id="morning" value="morning">Morning hours</option>
+                <option id="afternoon" value="afternoon">Afternoon hours</option>
+                <option id="evening" value="evening">Evening hours</option>
+    
+            </select>
+            
+        </p>
+        <input type="reset" value="Reset Button" name="reset">
+        <br> -->
+        <br>
+        <input type="submit" >
+
+
+        
+        
+
+    </form>
+    
+</body>
+</html>
