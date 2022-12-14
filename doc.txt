@@ -1,0 +1,7 @@
+1.install php 
+2.install apache 
+3.go to terminal and start a localserver using this command:
+4.php -S localhost:$PORT
+where $PORT is the port number i.e php -S localhost:8080
+
+5.then go to the chrome and type localhost:8080/index.html to open the website.
